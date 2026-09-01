@@ -51,16 +51,27 @@
 
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
-    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+    *{
+      animation-duration:0.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:0.01ms !important;
+    }
   }
 
-  ::selection{ background:var(--gold-dim); color:var(--bg); }
+  ::selection{
+    background:var(--gold-dim);
+    color:var(--bg);
+  }
 
-  a, button{ font-family:inherit; color:inherit; }
+  a, button{
+    font-family:inherit;
+    color:inherit;
+  }
 
   /* ---------- grain overlay ---------- */
   #grain{
-    position:fixed; inset:0;
+    position:fixed;
+    inset:0;
     pointer-events:none;
     z-index:500;
     opacity:0.045;
@@ -68,21 +79,36 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* ---------- floating particles (subtle, non-intrusive) ---------- */
-  #particles{ position:fixed; inset:0; pointer-events:none; z-index:1; overflow:hidden; }
+  /* ---------- floating particles ---------- */
+  #particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    overflow:hidden;
+  }
+
   .particle{
     position:absolute;
-    width:2px; height:2px;
+    width:2px;
+    height:2px;
     border-radius:50%;
     background:var(--gold);
     opacity:0;
     animation:drift linear infinite;
   }
+
   @keyframes drift{
-    0%{ transform:translateY(0) translateX(0); opacity:0; }
+    0%{
+      transform:translateY(0) translateX(0);
+      opacity:0;
+    }
     10%{ opacity:0.35; }
     90%{ opacity:0.2; }
-    100%{ transform:translateY(-110vh) translateX(20px); opacity:0; }
+    100%{
+      transform:translateY(-110vh) translateX(20px);
+      opacity:0;
+    }
   }
 
   section{
@@ -96,7 +122,11 @@
     z-index:2;
   }
 
-  .wrap{ width:100%; max-width:640px; margin:0 auto; }
+  .wrap{
+    width:100%;
+    max-width:640px;
+    margin:0 auto;
+  }
 
   .eyebrow{
     font-family:var(--sans);
@@ -135,15 +165,21 @@
     transform:translateY(28px);
     transition:opacity 1s var(--ease), transform 1s var(--ease);
   }
-  .fade-up.in{ opacity:1; transform:translateY(0); }
+
+  .fade-up.in{
+    opacity:1;
+    transform:translateY(0);
+  }
 
   /* ============================================================
      HERO
      ============================================================ */
+
   #hero{
     padding:2rem 1.5rem;
     text-align:center;
   }
+
   #hero .for-line{
     font-family:var(--serif);
     font-style:italic;
@@ -153,11 +189,13 @@
     opacity:0;
     animation:heroIn 1.4s var(--ease) 0.3s forwards;
   }
+
   #hero h1{
     margin-top:1.5rem;
     opacity:0;
     animation:heroIn 1.4s var(--ease) 0.7s forwards;
   }
+
   #hero .sub{
     margin-top:1.25rem;
     color:var(--ink-dim);
@@ -165,9 +203,16 @@
     opacity:0;
     animation:heroIn 1.4s var(--ease) 1.1s forwards;
   }
+
   @keyframes heroIn{
-    from{ opacity:0; transform:translateY(16px); }
-    to{ opacity:1; transform:translateY(0); }
+    from{
+      opacity:0;
+      transform:translateY(16px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
   }
 
   #open-btn{
@@ -182,9 +227,14 @@
     cursor:pointer;
     opacity:0;
     animation:heroIn 1.4s var(--ease) 1.5s forwards;
-    transition:border-color 0.4s var(--ease), color 0.4s var(--ease), background 0.4s var(--ease);
+    transition:
+      border-color 0.4s var(--ease),
+      color 0.4s var(--ease),
+      background 0.4s var(--ease);
   }
-  #open-btn:hover, #open-btn:focus-visible{
+
+  #open-btn:hover,
+  #open-btn:focus-visible{
     border-color:var(--gold-dim);
     color:var(--gold);
     background:rgba(199,161,91,0.06);
@@ -193,18 +243,21 @@
   #hero .scroll-hint{
     position:absolute;
     bottom:2.5rem;
-    width:1px; height:38px;
+    width:1px;
+    height:38px;
     background:var(--line-strong);
     opacity:0;
     animation:heroIn 1.4s var(--ease) 2s forwards;
   }
 
   /* main content is hidden until the letter opens */
+
   #main-content{
     opacity:0;
     pointer-events:none;
     transition:opacity 1.2s var(--ease);
   }
+
   #main-content.revealed{
     opacity:1;
     pointer-events:auto;
@@ -213,6 +266,7 @@
   /* ============================================================
      SECTION 1 — letter intro
      ============================================================ */
+
   .letter-block{
     border-left:1px solid var(--line-strong);
     padding-left:1.75rem;
@@ -221,54 +275,78 @@
     color:var(--ink);
     line-height:1.85;
   }
+
   .editable{
-    background:linear-gradient(transparent 92%, rgba(199,161,91,0.18) 0%);
+    background:linear-gradient(
+      transparent 92%,
+      rgba(199,161,91,0.18) 0%
+    );
   }
 
   /* ============================================================
      TIMELINE
      ============================================================ */
-  .timeline{ width:100%; }
+
+  .timeline{
+    width:100%;
+  }
+
   .t-item{
     border-top:1px solid var(--line);
     padding:2.25rem 0;
     cursor:pointer;
   }
-  .t-item:last-of-type{ border-bottom:1px solid var(--line); }
+
+  .t-item:last-of-type{
+    border-bottom:1px solid var(--line);
+  }
+
   .t-head{
     display:flex;
     align-items:baseline;
     justify-content:space-between;
     gap:1rem;
   }
+
   .t-year{
     font-family:var(--serif);
     font-size:clamp(1.5rem, 4.2vw, 2rem);
     color:var(--ink);
   }
+
   .t-toggle{
     font-size:1.3rem;
     color:var(--gold-dim);
     transition:transform 0.5s var(--ease);
     flex-shrink:0;
   }
-  .t-item.open .t-toggle{ transform:rotate(45deg); }
+
+  .t-item.open .t-toggle{
+    transform:rotate(45deg);
+  }
+
   .t-body{
     max-height:0;
     overflow:hidden;
-    transition:max-height 0.6s var(--ease), opacity 0.5s var(--ease), margin-top 0.5s var(--ease);
+    transition:
+      max-height 0.6s var(--ease),
+      opacity 0.5s var(--ease),
+      margin-top 0.5s var(--ease);
     opacity:0;
   }
+
   .t-item.open .t-body{
     max-height:400px;
     opacity:1;
     margin-top:1rem;
   }
+
   .t-body p{
     color:var(--ink-dim);
     font-size:1rem;
     font-weight:300;
   }
+
   .t-silence{
     text-align:center;
     margin-top:4rem;
@@ -282,14 +360,24 @@
   /* ============================================================
      GALLERY
      ============================================================ */
-  #memories{ padding-left:1rem; padding-right:1rem; }
+
+  #memories{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
   .gallery{
     width:100%;
     max-width:920px;
     columns:2;
     column-gap:1rem;
   }
-  @media (min-width:720px){ .gallery{ columns:3; } }
+
+  @media (min-width:720px){
+    .gallery{
+      columns:3;
+    }
+  }
 
   .frame{
     break-inside:avoid;
@@ -298,14 +386,25 @@
     border:1px solid var(--line);
     padding:0.5rem 0.5rem 0.9rem;
     cursor:pointer;
-    transition:transform 0.5s var(--ease), border-color 0.5s var(--ease);
+    transition:
+      transform 0.5s var(--ease),
+      border-color 0.5s var(--ease);
   }
-  .frame:hover{ transform:translateY(-4px); border-color:var(--line-strong); }
+
+  .frame:hover{
+    transform:translateY(-4px);
+    border-color:var(--line-strong);
+  }
+
   .frame .ph{
     width:100%;
     aspect-ratio:4/5;
     background:
-      linear-gradient(135deg, rgba(199,161,91,0.07), transparent 60%),
+      linear-gradient(
+        135deg,
+        rgba(199,161,91,0.07),
+        transparent 60%
+      ),
       #1c1811;
     display:flex;
     align-items:center;
@@ -317,7 +416,14 @@
     padding:1rem;
     overflow:hidden;
   }
-  .frame .ph img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  .frame .ph img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
   .frame figcaption{
     font-family:var(--serif);
     font-style:italic;
@@ -328,8 +434,10 @@
   }
 
   /* lightbox */
+
   #lightbox{
-    position:fixed; inset:0;
+    position:fixed;
+    inset:0;
     background:rgba(8,7,5,0.94);
     display:flex;
     align-items:center;
@@ -341,7 +449,12 @@
     transition:opacity 0.5s var(--ease);
     padding:2rem;
   }
-  #lightbox.show{ opacity:1; pointer-events:auto; }
+
+  #lightbox.show{
+    opacity:1;
+    pointer-events:auto;
+  }
+
   #lightbox .lb-img{
     max-width:min(90vw, 640px);
     max-height:65vh;
@@ -355,8 +468,17 @@
     transform:scale(0.94);
     transition:transform 0.5s var(--ease);
   }
-  #lightbox.show .lb-img{ transform:scale(1); }
-  #lightbox .lb-img img{ width:100%; height:100%; object-fit:contain; }
+
+  #lightbox.show .lb-img{
+    transform:scale(1);
+  }
+
+  #lightbox .lb-img img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+
   #lightbox .lb-caption{
     font-family:var(--serif);
     font-style:italic;
@@ -365,20 +487,27 @@
     text-align:center;
     max-width:60ch;
   }
+
   #lightbox .lb-close{
     position:absolute;
-    top:1.75rem; right:1.75rem;
-    background:none; border:none;
+    top:1.75rem;
+    right:1.75rem;
+    background:none;
+    border:none;
     color:var(--ink-dim);
     font-size:1.6rem;
     cursor:pointer;
     line-height:1;
   }
-  #lightbox .lb-close:hover{ color:var(--gold); }
+
+  #lightbox .lb-close:hover{
+    color:var(--gold);
+  }
 
   /* ============================================================
      APOLOGY / heavier letter sections
      ============================================================ */
+
   .heading-serif{
     text-align:center;
     margin-bottom:2.5rem;
@@ -387,7 +516,15 @@
   /* ============================================================
      LITTLE THINGS — cards
      ============================================================ */
-  .cards{ display:flex; flex-direction:column; gap:1px; width:100%; background:var(--line); }
+
+  .cards{
+    display:flex;
+    flex-direction:column;
+    gap:1px;
+    width:100%;
+    background:var(--line);
+  }
+
   .card{
     background:var(--bg);
     padding:1.6rem 0.25rem;
@@ -399,17 +536,26 @@
   /* ============================================================
      COMEBACK — dark climax
      ============================================================ */
-  #comeback{ background:#0a0908; }
-  #comeback h2{ text-align:center; }
+
+  #comeback{
+    background:#0a0908;
+  }
+
+  #comeback h2{
+    text-align:center;
+  }
+
   #comeback .line-b{
     text-align:center;
     color:var(--ink-dim);
     margin-top:0.5rem;
   }
+
   #comeback .letter-block{
     margin-top:2.5rem;
     text-align:left;
   }
+
   #comeback .soft-note{
     text-align:center;
     margin-top:2.5rem;
@@ -421,7 +567,11 @@
   /* ============================================================
      FINAL QUESTION
      ============================================================ */
-  #final{ text-align:center; }
+
+  #final{
+    text-align:center;
+  }
+
   .choice-row{
     display:flex;
     gap:1rem;
@@ -429,6 +579,7 @@
     flex-wrap:wrap;
     justify-content:center;
   }
+
   .choice-btn{
     border:1px solid var(--line-strong);
     background:none;
@@ -437,13 +588,19 @@
     font-size:0.95rem;
     color:var(--ink);
     cursor:pointer;
-    transition:border-color 0.4s var(--ease), background 0.4s var(--ease), transform 0.3s var(--ease);
+    transition:
+      border-color 0.4s var(--ease),
+      background 0.4s var(--ease),
+      transform 0.3s var(--ease);
   }
-  .choice-btn:hover, .choice-btn:focus-visible{
+
+  .choice-btn:hover,
+  .choice-btn:focus-visible{
     border-color:var(--gold);
     background:rgba(199,161,91,0.07);
     transform:translateY(-2px);
   }
+
   .choice-btn.primary{
     border-color:var(--gold-dim);
     color:var(--gold);
@@ -458,36 +615,57 @@
     max-width:52ch;
     opacity:0;
     transform:translateY(10px);
-    transition:opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    transition:
+      opacity 0.9s var(--ease),
+      transform 0.9s var(--ease);
   }
-  .response.show{ opacity:1; transform:translateY(0); }
+
+  .response.show{
+    opacity:1;
+    transform:translateY(0);
+  }
 
   #confetti-layer{
-    position:fixed; inset:0;
+    position:fixed;
+    inset:0;
     pointer-events:none;
     z-index:900;
   }
+
   .spark{
     position:absolute;
-    width:5px; height:5px;
+    width:5px;
+    height:5px;
     background:var(--gold);
     border-radius:50%;
     opacity:0.9;
     animation:sparkUp 1.8s var(--ease) forwards;
   }
+
   @keyframes sparkUp{
-    0%{ transform:translateY(0) scale(1); opacity:0.9; }
-    100%{ transform:translateY(-140px) scale(0.3); opacity:0; }
+    0%{
+      transform:translateY(0) scale(1);
+      opacity:0.9;
+    }
+    100%{
+      transform:translateY(-140px) scale(0.3);
+      opacity:0;
+    }
   }
 
   /* ============================================================
      CLOSING
      ============================================================ */
+
   #closing{
     min-height:60vh;
     text-align:center;
   }
-  #closing p{ color:var(--ink-dim); }
+
+  #closing p{
+    color:var(--ink-dim);
+  }
+
   #closing .signature{
     margin-top:2rem;
     font-family:var(--serif);
@@ -507,12 +685,22 @@
   }
 
   @media (max-width:520px){
-    section{ padding:6rem 1.25rem; }
-    .gallery{ columns:2; column-gap:0.75rem; }
-    .frame{ margin-bottom:0.75rem; }
+    section{
+      padding:6rem 1.25rem;
+    }
+
+    .gallery{
+      columns:2;
+      column-gap:0.75rem;
+    }
+
+    .frame{
+      margin-bottom:0.75rem;
+    }
   }
 </style>
 </head>
+
 <body>
 
 <div id="grain"></div>
@@ -520,45 +708,69 @@
 <div id="confetti-layer"></div>
 
 <!-- ================= HERO ================= -->
+
 <section id="hero">
   <div class="for-line">For Akshita.</div>
-  <!-- EDIT: nothing to change here unless you'd like different opening lines -->
-  <h1>Some things are understood<br>a little too late.</h1>
-  <p class="sub">And some people are missed long before we admit it.</p>
+
+  <h1>
+    Some things are understood<br>
+    a little too late.
+  </h1>
+
+  <p class="sub">
+    And some people are missed long before we admit it.
+  </p>
+
   <button id="open-btn">Open this...</button>
+
   <div class="scroll-hint"></div>
 </section>
 
 <div id="main-content">
 
   <!-- ================= SECTION 1 — BEFORE I SAY ANYTHING ================= -->
+
   <section id="s1">
     <div class="wrap">
-      <div class="eyebrow fade-up">Before I say anything</div>
-      <div class="letter-block fade-up">
-        <!-- EDIT: WRITE YOUR OWN PARAGRAPH HERE — INTRODUCTION.
-             This is the very first thing she reads once the page opens.
-             Do not fill this with generic text — write it yourself. -->
-        <p class="editable">I KNOW KI I DID ALL WRONG MESSED UP ALOT BUT NOW I HAVE REALISED KI I CANT LOOSE A PERSON LIKE YOU BABY I JUST WANT YOU TO KNOW THAT I LOVE YOU ALOTTTTTTTTTTTT AKSHITTTTAAAAAAAAAAAAAAAAAA BABYYYYYY</p>
+
+      <div class="eyebrow fade-up">
+        Before I say anything
       </div>
+
+      <div class="letter-block fade-up">
+        <p class="editable">
+          I KNOW KI I DID ALL WRONG MESSED UP ALOT BUT NOW I HAVE REALISED KI I CANT LOOSE A PERSON LIKE YOU BABY I JUST WANT YOU TO KNOW THAT I LOVE YOU ALOTTTTTTTTTTTT AKSHITTTTAAAAAAAAAAAAAAAAAA BABYYYYYY
+        </p>
+      </div>
+
     </div>
   </section>
 
   <!-- ================= SECTION 2 — OUR STORY ================= -->
+
   <section id="s2">
     <div class="wrap">
-      <div class="eyebrow fade-up">Our story</div>
-      <h2 class="fade-up" style="margin-bottom:2.5rem;">Three years, more or less.</h2>
+
+      <div class="eyebrow fade-up">
+        Our story
+      </div>
+
+      <h2 class="fade-up" style="margin-bottom:2.5rem;">
+        Three years, more or less.
+      </h2>
 
       <div class="timeline fade-up">
+
         <div class="t-item">
           <div class="t-head">
             <span class="t-year">Year One</span>
             <span class="t-toggle">+</span>
           </div>
+
           <div class="t-body">
-            <!-- EDIT: WRITE MEMORY/TEXT HERE — Year One -->
-            <p class="editable">yadd hai jab first year complete hua tha tab kitne khush the hum dono bhai ekdusre ki duniya the the kkya meri toh abhi bhi ho tum school ke bad paidal paidal milna bhai sahab yad karke itna acha lagta na kya bataye.....</p>
+            <p class="editable">
+              yadd hai jab first year complete hua tha tab kitne khush the hum dono bhai ekdusre ki duniya the the kkya meri toh abhi bhi ho tum school ke bad paidal paidal milna bhai sahab yad karke itna acha lagta na kya bataye.....
+            </p>
           </div>
         </div>
 
@@ -567,9 +779,11 @@
             <span class="t-year">Year Two</span>
             <span class="t-toggle">+</span>
           </div>
+
           <div class="t-body">
-            <!-- EDIT: WRITE MEMORY/TEXT HERE — Year Two -->
-            <p class="editable">fir dusra sal aya pyar aur jyada badh gaya itna ki bas ab toh bhai kuch bhi ho jaye nahi jana hai.........</p>
+            <p class="editable">
+              fir dusra sal aya pyar aur jyada badh gaya itna ki bas ab toh bhai kuch bhi ho jaye nahi jana hai.........
+            </p>
           </div>
         </div>
 
@@ -578,265 +792,595 @@
             <span class="t-year">Year Three</span>
             <span class="t-toggle">+</span>
           </div>
+
           <div class="t-body">
-            <!-- EDIT: WRITE MEMORY/TEXT HERE — Year Three -->
-            <p class="editable">par teesra sal thodda off tha par ab things are getting better again nazar na lage</p>
+            <p class="editable">
+              par teesra sal thodda off tha par ab things are getting better again nazar na lage
+            </p>
           </div>
         </div>
+
       </div>
 
-      <div class="t-silence fade-up">And then... silence.</div>
+      <div class="t-silence fade-up">
+        And then... silence.
+      </div>
+
     </div>
   </section>
 
   <!-- ================= SECTION 3 — MEMORIES ================= -->
+
   <section id="memories">
     <div class="wrap" style="max-width:920px;">
-      <div class="eyebrow fade-up">Memories</div>
-      <h2 class="fade-up" style="margin-bottom:2.5rem;">A few things I kept.</h2>
+
+      <div class="eyebrow fade-up">
+        Memories
+      </div>
+
+      <h2 class="fade-up" style="margin-bottom:2.5rem;">
+        A few things I kept.
+      </h2>
 
       <div class="gallery fade-up">
-        <!-- EDIT: Replace each .ph div's inner content with an <img src="memory-01.jpg" alt="..."> tag,
-             and replace each figcaption's placeholder with your own caption (or delete the figcaption
-             if you don't want one for that photo). -->
+
+        <!-- MEMORY 1 -->
         <figure class="frame" data-index="0">
-          <div class="ph">memory-1.jpg</div>
-          <figcaption>our first photo</figcaption>
+          <div class="ph">
+            <img src="memory-1.jpg" alt="Our first photo">
+          </div>
+          <figcaption>
+            our first photo
+          </figcaption>
         </figure>
+
+        <!-- MEMORY 2 -->
         <figure class="frame" data-index="1">
-          <div class="ph">memory-2.jpg</div>
-          <figcaption>yarrrrrr</figcaption>
+          <div class="ph">
+            <img src="memory-2.jpg" alt="Memory 2">
+          </div>
+          <figcaption>
+            yarrrrrr
+          </figcaption>
         </figure>
+
+        <!-- MEMORY 3 -->
         <figure class="frame" data-index="2">
-          <div class="ph">memory-3.jpg</div>
-          <figcaption>log samundar ki batein karte hai hum toh teri ankho me hi doob gaye</figcaption>
+          <div class="ph">
+            <img src="memory-3.jpg" alt="Memory 3">
+          </div>
+          <figcaption>
+            log samundar ki batein karte hai hum toh teri ankho me hi doob gaye
+          </figcaption>
         </figure>
+
+        <!-- MEMORY 4 -->
         <figure class="frame" data-index="3">
-          <div class="ph">memory-4.jpg</div>
-          <figcaption>momitos yarrr</figcaption>
+          <div class="ph">
+            <img src="memory-4.jpg" alt="Memory 4">
+          </div>
+          <figcaption>
+            momitos yarrr
+          </figcaption>
         </figure>
+
+        <!-- MEMORY 5 -->
         <figure class="frame" data-index="4">
-          <div class="ph">memory-5.jpg</div>
-          <figcaption>cassia</figcaption>
+          <div class="ph">
+            <img src="memory-5.jpg" alt="Memory 5">
+          </div>
+          <figcaption>
+            cassia
+          </figcaption>
         </figure>
+
+        <!-- MEMORY 6 -->
         <figure class="frame" data-index="5">
-          <div class="ph">memory-6.jpg</div>
-          <figcaption>momitos love again</figcaption>
+          <div class="ph">
+            <img src="memory-6.jpg" alt="Memory 6">
+          </div>
+          <figcaption>
+            momitos love again
+          </figcaption>
         </figure>
+
+        <!-- MEMORY 7 -->
         <figure class="frame" data-index="6">
-          <div class="ph">memory-7.jpg</div>
-          <figcaption>againnn</figcaption>
+          <div class="ph">
+            <img src="memory-7.jpg" alt="Memory 7">
+          </div>
+          <figcaption>
+            againnn
+          </figcaption>
         </figure>
+
+        <!-- MEMORY 8 -->
         <figure class="frame" data-index="7">
-          <div class="ph">memory-8.jpg</div>
-          <figcaption>i love you</figcaption>
+          <div class="ph">
+            <img src="memory-8.jpg" alt="Memory 8">
+          </div>
+          <figcaption>
+            i love you
+          </figcaption>
         </figure>
-        <!-- To add more (up to 12), copy a <figure class="frame"> block above,
-             give it the next data-index, and point it at memory-09.jpg, etc. -->
+
       </div>
     </div>
   </section>
 
   <!-- ================= SECTION 4 — WHAT I SHOULD HAVE SAID ================= -->
+
   <section id="s4">
     <div class="wrap">
-      <h2 class="heading-serif fade-up">I owe you an apology.</h2>
+
+      <h2 class="heading-serif fade-up">
+        I owe you an apology.
+      </h2>
+
       <div class="letter-block fade-up">
-        <!-- EDIT: WRITE YOUR MAIN APOLOGY HERE.
-             This is the core of the page — write it yourself, in your own words. -->
-        <p class="editable">SEE IM SO SORRY FOR THE MISTAKES I HAVE MADE IN THE PAST BUT I ASSURE YOU KI AGE SE NAHI HOGA AISA KUCH BHI JISKI WAJAH SE TUMHE KAHI BHI NAZAR NEECHE KARKE BAAT KARNI PADE YE MERI GUARANTEE HAI BAKI I LOVE YOU ALOT.</p>
+        <p class="editable">
+          SEE IM SO SORRY FOR THE MISTAKES I HAVE MADE IN THE PAST BUT I ASSURE YOU KI AGE SE NAHI HOGA AISA KUCH BHI JISKI WAJAH SE TUMHE KAHI BHI NAZAR NEECHE KARKE BAAT KARNI PADE YE MERI GUARANTEE HAI BAKI I LOVE YOU ALOT.
+        </p>
       </div>
+
     </div>
   </section>
 
   <!-- ================= SECTION 5 — I REALIZED ================= -->
+
   <section id="s5">
     <div class="wrap">
-      <h2 class="heading-serif fade-up">Losing the conversation<br>made me realize the value of it.</h2>
+
+      <h2 class="heading-serif fade-up">
+        Losing the conversation<br>
+        made me realize the value of it.
+      </h2>
+
       <div class="letter-block fade-up">
-        <!-- EDIT: WRITE YOUR REALIZATION / WHAT YOU LEARNED HERE -->
-        <p class="editable">AND LATELY IVE REALISED KI YE DUNIYA KAISI HAI AUR MERE PASS KYA HAI JO MAI CHUTIYA KI TARAH KHOO RAHA THA BHAI ITNI BADI GALATOI KARRE THE NA KYA BATAYE PAR AB WO FI HOGI SUBEH KA BHULA AGAR SHAM KO GHAR LAUT AYE TOH USSE BHULA NAHI KEHTE TUM BHALE HI NNA MANO HUM LAGE RAHENGE HUMESHA AISE HI PAR JAAO YAR HO GAYA AB PLEASE BABY ONE LAST TIME PLEASE I REQUEST YOU YARRR</p>
+        <p class="editable">
+          AND LATELY IVE REALISED KI YE DUNIYA KAISI HAI AUR MERE PASS KYA HAI JO MAI CHUTIYA KI TARAH KHOO RAHA THA BHAI ITNI BADI GALATOI KARRE THE NA KYA BATAYE PAR AB WO FI HOGI SUBEH KA BHULA AGAR SHAM KO GHAR LAUT AYE TOH USSE BHULA NAHI KEHTE TUM BHALE HI NNA MANO HUM LAGE RAHENGE HUMESHA AISE HI PAR JAAO YAR HO GAYA AB PLEASE BABY ONE LAST TIME PLEASE I REQUEST YOU YARRR
+        </p>
       </div>
+
     </div>
   </section>
 
   <!-- ================= SECTION 6 — THE LITTLE THINGS ================= -->
+
   <section id="s6">
     <div class="wrap">
-      <div class="eyebrow fade-up">The little things</div>
-      <h2 class="fade-up" style="margin-bottom:2.5rem;">What I actually miss.</h2>
 
-      <!-- EDIT: replace any of these five lines with your own — keep them short -->
-      <div class="cards">
-        <div class="card fade-up">The random conversations.</div>
-        <div class="card fade-up">The stupid jokes.</div>
-        <div class="card fade-up">The arguments.</div>
-        <div class="card fade-up">The moments that made no sense to anyone else.</div>
-        <div class="card fade-up">The comfort of simply having you there.</div>
+      <div class="eyebrow fade-up">
+        The little things
       </div>
+
+      <h2 class="fade-up" style="margin-bottom:2.5rem;">
+        What I actually miss.
+      </h2>
+
+      <div class="cards">
+
+        <div class="card fade-up">
+          The random conversations.
+        </div>
+
+        <div class="card fade-up">
+          The stupid jokes.
+        </div>
+
+        <div class="card fade-up">
+          The arguments.
+        </div>
+
+        <div class="card fade-up">
+          The moments that made no sense to anyone else.
+        </div>
+
+        <div class="card fade-up">
+          The comfort of simply having you there.
+        </div>
+
+      </div>
+
     </div>
   </section>
 
   <!-- ================= SECTION 7 — THE COMEBACK ================= -->
+
   <section id="comeback">
     <div class="wrap">
-      <h2 class="fade-up">I'm not asking you to forget everything.</h2>
-      <p class="line-b fade-up">I'm asking if we can start talking again just a last chance.</p>
+
+      <h2 class="fade-up">
+        I'm not asking you to forget everything.
+      </h2>
+
+      <p class="line-b fade-up">
+        I'm asking if we can start talking again just a last chance.
+      </p>
 
       <div class="letter-block fade-up">
-        <!-- EDIT: WRITE YOUR COMEBACK / WHAT YOU WANT TO SAY TO AKSHITA HERE -->
-        <p class="editable">i just want a last chance to prove evryone wrong jo bhi bolta hai ulta pulta hu dono ke bare me yar nahi acha lagta aur mera toh tumhare alawa kisi aur se chalne bhi nahi wala e toh hum jan gaye hai bahut ache se isiliye bas ek last chance chahiye sabko galat prove karne ke liye</p>
+        <p class="editable">
+          i just want a last chance to prove evryone wrong jo bhi bolta hai ulta pulta hu dono ke bare me yar nahi acha lagta aur mera toh tumhare alawa kisi aur se chalne bhi nahi wala e toh hum jan gaye hai bahut ache se isiliye bas ek last chance chahiye sabko galat prove karne ke liye
+        </p>
       </div>
 
-      <p class="soft-note fade-up">No pressure. No expectations. Just an honest attempt.</p>
+      <p class="soft-note fade-up">
+        No pressure. No expectations. Just an honest attempt.
+      </p>
+
     </div>
   </section>
 
   <!-- ================= SECTION 8 — FINAL QUESTION ================= -->
+
   <section id="final">
     <div class="wrap">
-      <div class="eyebrow fade-up" style="text-align:center;">So, Akshita...</div>
-      <h2 class="fade-up">Can we talk again?</h2>
+
+      <div class="eyebrow fade-up" style="text-align:center;">
+        So, Akshita...
+      </div>
+
+      <h2 class="fade-up">
+        Can we talk again?
+      </h2>
 
       <div class="choice-row fade-up">
-        <button class="choice-btn primary" id="btn-yes">i lov you baby.</button>
-        <button class="choice-btn" id="btn-time">yes i love you alot.</button>
+
+        <button class="choice-btn primary" id="btn-yes">
+          i lov you baby.
+        </button>
+
+        <button class="choice-btn" id="btn-time">
+          yes i love you alot.
+        </button>
+
       </div>
 
       <p class="response" id="response-text"></p>
+
     </div>
   </section>
 
   <!-- ================= CLOSING ================= -->
+
   <section id="closing">
     <div class="wrap">
-      <p class="fade-up">Whatever happens next, thank you for reading this.</p>
-      <div class="signature fade-up">Your love,<br>Abhinav</div>
+
+      <p class="fade-up">
+        Whatever happens next, thank you for reading this.
+      </p>
+
+      <div class="signature fade-up">
+        Your love,<br>
+        Abhinav
+      </div>
+
     </div>
   </section>
 
-  <footer>made this at 2am, meant every word</footer>
+  <footer>
+    made this at 2am, meant every word
+  </footer>
 
-</div><!-- /#main-content -->
+</div>
 
 <!-- ================= LIGHTBOX ================= -->
+
 <div id="lightbox">
-  <button class="lb-close" aria-label="Close">&times;</button>
-  <div class="lb-img" id="lb-img">memory</div>
+
+  <button class="lb-close" aria-label="Close">
+    &times;
+  </button>
+
+  <div class="lb-img" id="lb-img">
+    memory
+  </div>
+
   <div class="lb-caption" id="lb-caption"></div>
+
 </div>
 
 <script>
 (function(){
 
   /* ---------- particles ---------- */
+
   const pWrap = document.getElementById('particles');
   const count = window.innerWidth < 600 ? 14 : 26;
-  for(let i=0;i<count;i++){
+
+  for(let i = 0; i < count; i++){
+
     const p = document.createElement('div');
+
     p.className = 'particle';
-    p.style.left = Math.random()*100 + 'vw';
-    p.style.bottom = (Math.random()*20 - 10) + 'vh';
-    p.style.animationDuration = (14 + Math.random()*14) + 's';
-    p.style.animationDelay = (Math.random()*14) + 's';
-    p.style.width = p.style.height = (Math.random()<0.3 ? '3px' : '1.5px');
+
+    p.style.left =
+      Math.random() * 100 + 'vw';
+
+    p.style.bottom =
+      (Math.random() * 20 - 10) + 'vh';
+
+    p.style.animationDuration =
+      (14 + Math.random() * 14) + 's';
+
+    p.style.animationDelay =
+      (Math.random() * 14) + 's';
+
+    p.style.width =
+      p.style.height =
+      (Math.random() < 0.3 ? '3px' : '1.5px');
+
     pWrap.appendChild(p);
   }
 
+
   /* ---------- open letter ---------- */
-  const openBtn = document.getElementById('open-btn');
-  const main = document.getElementById('main-content');
+
+  const openBtn =
+    document.getElementById('open-btn');
+
+  const main =
+    document.getElementById('main-content');
+
   openBtn.addEventListener('click', function(){
+
     main.classList.add('revealed');
-    document.getElementById('s1').scrollIntoView({ behavior:'smooth' });
+
+    document
+      .getElementById('s1')
+      .scrollIntoView({
+        behavior:'smooth'
+      });
+
     revealVisible();
   });
 
+
   /* ---------- scroll reveal ---------- */
-  const revealables = document.querySelectorAll('.fade-up');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){
-        en.target.classList.add('in');
-        io.unobserve(en.target);
-      }
+
+  const revealables =
+    document.querySelectorAll('.fade-up');
+
+  const io =
+    new IntersectionObserver((entries)=>{
+
+      entries.forEach(en=>{
+
+        if(en.isIntersecting){
+
+          en.target.classList.add('in');
+
+          io.unobserve(en.target);
+        }
+
+      });
+
+    }, {
+      threshold:0.15,
+      rootMargin:'0px 0px -8% 0px'
     });
-  }, { threshold:0.15, rootMargin:'0px 0px -8% 0px' });
-  revealables.forEach(el=>io.observe(el));
+
+  revealables.forEach(el =>
+    io.observe(el)
+  );
+
 
   function revealVisible(){
+
     revealables.forEach(el=>{
-      const r = el.getBoundingClientRect();
-      if(r.top < window.innerHeight){ el.classList.add('in'); }
+
+      const r =
+        el.getBoundingClientRect();
+
+      if(r.top < window.innerHeight){
+        el.classList.add('in');
+      }
+
     });
+
   }
+
 
   /* ---------- timeline ---------- */
-  document.querySelectorAll('.t-item').forEach(item=>{
-    item.querySelector('.t-head').addEventListener('click', ()=>{
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.t-item.open').forEach(o=>o.classList.remove('open'));
-      if(!wasOpen) item.classList.add('open');
+
+  document
+    .querySelectorAll('.t-item')
+    .forEach(item=>{
+
+      item
+        .querySelector('.t-head')
+        .addEventListener('click', ()=>{
+
+          const wasOpen =
+            item.classList.contains('open');
+
+          document
+            .querySelectorAll('.t-item.open')
+            .forEach(o =>
+              o.classList.remove('open')
+            );
+
+          if(!wasOpen){
+            item.classList.add('open');
+          }
+
+        });
+
     });
-  });
+
 
   /* ---------- gallery lightbox ---------- */
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lb-img');
-  const lbCaption = document.getElementById('lb-caption');
 
-  document.querySelectorAll('.frame').forEach(frame=>{
-    frame.addEventListener('click', ()=>{
-      const phHTML = frame.querySelector('.ph').innerHTML;
-      const captionEl = frame.querySelector('figcaption');
-      lbImg.innerHTML = phHTML;
-      lbCaption.textContent = captionEl ? captionEl.textContent : '';
-      lb.classList.add('show');
+  const lb =
+    document.getElementById('lightbox');
+
+  const lbImg =
+    document.getElementById('lb-img');
+
+  const lbCaption =
+    document.getElementById('lb-caption');
+
+
+  document
+    .querySelectorAll('.frame')
+    .forEach(frame=>{
+
+      frame.addEventListener('click', ()=>{
+
+        const phHTML =
+          frame.querySelector('.ph').innerHTML;
+
+        const captionEl =
+          frame.querySelector('figcaption');
+
+        lbImg.innerHTML =
+          phHTML;
+
+        lbCaption.textContent =
+          captionEl
+            ? captionEl.textContent
+            : '';
+
+        lb.classList.add('show');
+
+      });
+
     });
+
+
+  document
+    .querySelector('.lb-close')
+    .addEventListener(
+      'click',
+      ()=>lb.classList.remove('show')
+    );
+
+
+  lb.addEventListener('click', (e)=>{
+
+    if(e.target === lb){
+      lb.classList.remove('show');
+    }
+
   });
-  document.querySelector('.lb-close').addEventListener('click', ()=> lb.classList.remove('show'));
-  lb.addEventListener('click', (e)=>{ if(e.target === lb) lb.classList.remove('show'); });
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') lb.classList.remove('show'); });
+
+
+  document.addEventListener('keydown', (e)=>{
+
+    if(e.key === 'Escape'){
+      lb.classList.remove('show');
+    }
+
+  });
+
 
   /* ---------- final question ---------- */
-  const responseText = document.getElementById('response-text');
-  const btnYes = document.getElementById('btn-yes');
-  const btnTime = document.getElementById('btn-time');
+
+  const responseText =
+    document.getElementById('response-text');
+
+  const btnYes =
+    document.getElementById('btn-yes');
+
+  const btnTime =
+    document.getElementById('btn-time');
+
 
   function showResponse(text, celebrate){
-    responseText.textContent = text;
+
+    responseText.textContent =
+      text;
+
     responseText.classList.add('show');
+
     btnYes.disabled = true;
     btnTime.disabled = true;
+
     btnYes.style.opacity = 0.5;
     btnTime.style.opacity = 0.5;
-    if(celebrate) burstConfetti();
+
+    if(celebrate){
+      burstConfetti();
+    }
+
     setTimeout(()=>{
-      document.getElementById('closing').scrollIntoView({ behavior:'smooth' });
+
+      document
+        .getElementById('closing')
+        .scrollIntoView({
+          behavior:'smooth'
+        });
+
     }, 1400);
+
   }
 
+
   btnYes.addEventListener('click', ()=>{
-    showResponse("Then maybe this isn't the end of our story after all.", true);
-  });
-  btnTime.addEventListener('click', ()=>{
-    showResponse("That's okay. Take all the time you need. I just wanted you to know that I meant every word.", false);
+
+    showResponse(
+      "Then maybe this isn't the end of our story after all.",
+      true
+    );
+
   });
 
+
+  btnTime.addEventListener('click', ()=>{
+
+    showResponse(
+      "That's okay. Take all the time you need. I just wanted you to know that I meant every word.",
+      false
+    );
+
+  });
+
+
+  /* ---------- confetti ---------- */
+
   function burstConfetti(){
-    const layer = document.getElementById('confetti-layer');
-    const cx = window.innerWidth/2, cy = window.innerHeight*0.55;
-    for(let i=0;i<26;i++){
-      const s = document.createElement('div');
+
+    const layer =
+      document.getElementById('confetti-layer');
+
+    const cx =
+      window.innerWidth / 2;
+
+    const cy =
+      window.innerHeight * 0.55;
+
+
+    for(let i = 0; i < 26; i++){
+
+      const s =
+        document.createElement('div');
+
       s.className = 'spark';
-      const angle = Math.random()*Math.PI*2;
-      const dist = 40 + Math.random()*90;
-      s.style.left = (cx + Math.cos(angle)*dist) + 'px';
-      s.style.top = (cy + Math.sin(angle)*dist*0.4) + 'px';
-      s.style.animationDelay = (Math.random()*0.3) + 's';
+
+      const angle =
+        Math.random() * Math.PI * 2;
+
+      const dist =
+        40 + Math.random() * 90;
+
+      s.style.left =
+        (cx + Math.cos(angle) * dist) + 'px';
+
+      s.style.top =
+        (cy + Math.sin(angle) * dist * 0.4) + 'px';
+
+      s.style.animationDelay =
+        (Math.random() * 0.3) + 's';
+
       layer.appendChild(s);
-      setTimeout(()=> s.remove(), 2200);
+
+      setTimeout(
+        ()=>s.remove(),
+        2200
+      );
+
     }
+
   }
 
 })();
